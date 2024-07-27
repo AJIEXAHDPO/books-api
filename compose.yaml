@@ -40,7 +40,7 @@ services:
     container_name: ${APP_NAME}_mysql
     restart: unless-stopped
     ports:
-      - 3036:3036
+      - 3306:3306
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       # You should definitely change the password in production
