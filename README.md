@@ -28,4 +28,7 @@ Create database migrate it and add fixtures<br/>
 `php bin/console doctrine:migrations:migrate`<br/>
 `php bin/console doctrine:fixtures:load`<br/>
 
+You also can delete authors with no books via command
+`php bin/console authors:delete-extra`
+
 Go to the `localhost:8080` to start the app
