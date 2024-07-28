@@ -99,4 +99,24 @@ class Book
 
         return $this;
     }
+
+    public function getAll()
+    {
+        $authorsProcessed = [];
+        $authors = $this->getAuthor();
+        foreach ($authors as $author) {
+            array_push(
+                $authorsProcessed,
+                $author->getSurname()
+            );
+        }
+
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'publication_year' => $this->getPublicationYear(),
+            'author' => $authorsProcessed,
+            'publisher' => $this->getPublisher()->getName(),
+        ];
+    }
 }
