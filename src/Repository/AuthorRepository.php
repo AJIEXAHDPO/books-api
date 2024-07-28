@@ -40,4 +40,25 @@ class AuthorRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+    /**
+     * @return Author[] Returns an array of Author objects
+     */
+    public function findAllExtra(): array
+    {
+        // автоматически знает, что надо выбирать Продукты
+        // "p" - это псевдоним, который вы будете использовать до конца запроса
+        $qb = $this->createQueryBuilder('a');
+        $ids = $qb
+            ->select('a.id')
+            ->join('a.books', 'ab')
+            ->distinct()
+            ->getDQL();
+
+        return $this->createQueryBuilder("a1")
+            ->where($qb->expr()->notIn('a1.id', $ids))
+            ->getQuery()
+            ->execute();
+    }
 }
