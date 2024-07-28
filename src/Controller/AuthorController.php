@@ -27,4 +27,14 @@ class AuthorController extends AbstractController
             'Created author'
         ]);
     }
+
+    #[Route('/author/{id}', name: 'delete_author', methods: ['delete'])]
+    public function remove(int $id): JsonResponse
+    {
+        //$request->validate();
+
+        return $this->json([
+            'Deleted author'
+        ]);
+    }
 }
