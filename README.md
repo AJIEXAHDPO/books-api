@@ -2,13 +2,13 @@
 Simple Api for book shop. 
 Powered by Symfony 7 framework.
 ## Endpoints 
-- `GET: /api/books` - creating couriers. Returns created couriers info with Id.
-- `POST: /api/books` - creating orders. Return an array of created orders with Id.
-- `POST: /api/authors` - completes an order by Id and courier Id. Returns completed order Id.
-- `PATCH|PUT: /api/publisher/{id}` - change selected courier info. Returns updated courier data.
-- `DELETE: /api/authors/{id}` - returns selected courier info.
-- `DELETE: /api/publishers/{id}` - returns selected courier info.
-- `DELETE: /api/books/{id}` - returns selected courier info.
+- `GET: /book` - creating couriers. Returns created couriers info with Id.
+- `POST: /book` - creating orders. Return an array of created orders with Id.
+- `POST: /author` - completes an order by Id and courier Id. Returns completed order Id.
+- `PATCH|PUT: /publisher/{id}` - change selected courier info. Returns updated courier data.
+- `DELETE: /author/{id}` - returns selected courier info.
+- `DELETE: /publisher/{id}` - returns selected courier info.
+- `DELETE: /api/book/{id}` - returns selected courier info.
 ## Install
 Clone repository on your device.
 into the project folder `cd publications-api`
