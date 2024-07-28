@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Request\BookCreateRequest;
+use App\Request\BookUpdateRequest;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,6 +34,14 @@ class BookController extends AbstractController
         return $this->json([
             "Created book"
         ], status: 201);
+    }
+
+    #[Route('/book/{id}', name: 'edit_book', methods: ['patch', 'put'])]
+    public function editBook(ManagerRegistry $doctrine, int $id, BookUpdateRequest $request): JsonResponse
+    {
+        return $this->json(
+            "Updated book"
+        );
     }
 
     #[Route('/book/{id}', name: 'delete_book', methods: ['delete'])]
