@@ -11,7 +11,7 @@ Powered by Symfony 7 framework.
 - `DELETE: /api/books/{id}` - returns selected courier info.
 ## Install
 Clone repository on your device.
-into the project folder `cd delivery-api`
+into the project folder `cd publications-api`
 Run docker container
 ```sh
 docker-compose up --build -d
