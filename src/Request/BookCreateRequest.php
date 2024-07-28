@@ -4,7 +4,7 @@ namespace App\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class BookCreateRequest //extends BaseRequest
+class BookCreateRequest extends BaseRequest
 {
     #[Assert\NotBlank]
     #[Assert\All([
@@ -20,5 +20,5 @@ class BookCreateRequest //extends BaseRequest
             ]
         )
     ])]
-    public $books = [];
+    public $books;
 }

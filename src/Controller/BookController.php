@@ -27,11 +27,11 @@ class BookController extends AbstractController
     }
 
     #[Route('/book', name: 'create_book', methods: ['post'])]
-    public function create(ManagerRegistry $doctrine, #[MapRequestPayload] BookCreateRequest $request): JsonResponse
+    public function create(ManagerRegistry $doctrine, BookCreateRequest $request): JsonResponse
     {
         
         return $this->json([
-            "Created!!!"
+            "Created book"
         ], status: 201);
     }
 
