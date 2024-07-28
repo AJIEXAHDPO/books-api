@@ -24,7 +24,7 @@ class Publisher
     /**
      * @var Collection<int, Book>
      */
-    #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'publisher')]
+    #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'publisher', cascade: ['remove'])]
     private Collection $books;
 
     public function __construct()
@@ -89,5 +89,20 @@ class Publisher
         }
 
         return $this;
+    }
+
+    public function getAll()
+    {
+        $bookNames = [];
+        foreach ($this->getBooks()->toArray() as $book) {
+            array_push($bookNames, $book->getName());
+        }
+
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'address' => $this->getAddress(),
+            'books' => $bookNames,
+        ];
     }
 }

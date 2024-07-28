@@ -27,7 +27,7 @@ class Book
     /**
      * @var Collection<int, Author>
      */
-    #[ORM\ManyToMany(targetEntity: Author::class, inversedBy: 'books')]
+    #[ORM\ManyToMany(targetEntity: Author::class, inversedBy: 'books', cascade: ['remove'])]
     private Collection $author;
 
     public function __construct()
@@ -116,7 +116,7 @@ class Book
             'name' => $this->getName(),
             'publication_year' => $this->getPublicationYear(),
             'author' => $authorsProcessed,
-            'publisher' => $this->getPublisher()->getName(),
+            'publisher' => $this->getPublisher()?->getName(),
         ];
     }
 }

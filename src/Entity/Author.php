@@ -24,7 +24,7 @@ class Author
     /**
      * @var Collection<int, Book>
      */
-    #[ORM\ManyToMany(targetEntity: Book::class, mappedBy: 'author')]
+    #[ORM\ManyToMany(targetEntity: Book::class, mappedBy: 'author', cascade: ['remove'])]
     private Collection $books;
 
     public function __construct()
@@ -86,5 +86,15 @@ class Author
         }
 
         return $this;
+    }
+
+    public function getAll()
+    {
+        return[
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'surname' => $this->getSurname(),
+            'books' => $this->getBooks(),
+        ];
     }
 }
